@@ -1,0 +1,7 @@
+[2025-08-09T13:18:13.329Z] POST /api/auth - 404 - {"error":"Route not found"}
+[2025-08-09T13:27:19.760Z] POST /api/auth - 404 - {"error":"Route not found"}
+[2025-08-09T13:27:35.157Z] POST /api/auth - 404 - {"error":"Route not found"}
+[2025-08-09T13:27:58.854Z] POST /api/auth - 404 - {"error":"Route not found"}
+[2025-08-09T13:28:20.782Z] POST /api/auth - 404 - {"error":"Route not found"}
+[2025-08-09T14:17:43.980Z] POST /api/cards/my-cards - 404 - {"error":"Route not found"}
+[2025-08-09T14:33:36.827Z] POST /api/users/register - 404 - {"error":"Route not found"}
