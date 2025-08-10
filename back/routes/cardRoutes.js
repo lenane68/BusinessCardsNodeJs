@@ -12,7 +12,7 @@ router.post('/', authMiddleware, businessMiddleware, async (req, res) => {
   if (error) return res.status(400).json({ error: error.details[0].message });
 
   const bizNumber = Math.floor(100000 + Math.random() * 900000);
-  const card = new Card({ ...req.body, bizNumber, userId: req.user._id });
+  const card = new Card({ ...req.body, bizNumber, user_id: req.user._id });
   await card.save();
 
   res.status(201).json({ message: `Card created by user ${req.user._id}` });
@@ -49,7 +49,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
   const card = await Card.findById(req.params.id);
   if (!card) return res.status(404).json({ error: 'Card not found' });
 
-  if (card.userId.toString() !== req.user._id && !req.user.isAdmin) {
+  if (card.user_id.toString() !== req.user._id && !req.user.isAdmin) {
     return res.status(403).json({ error: 'Access denied' });
   }
 
@@ -98,7 +98,7 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   const card = await Card.findById(req.params.id);
   if (!card) return res.status(404).json({ error: 'Card not found' });
 
-  if (card.userId.toString() !== req.user._id && !req.user.isAdmin) {
+  if (card.user_id.toString() !== req.user._id && !req.user.isAdmin) {
     return res.status(403).json({ error: 'Access denied' });
   }
 

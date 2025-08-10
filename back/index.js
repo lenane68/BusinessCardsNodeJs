@@ -13,9 +13,21 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const isProduction = process.env.NODE_ENV === 'production';
+const mongoURI = isProduction ? process.env.MONGO_URI_ATLAS : process.env.MONGO_URI_LOCAL;
+
+const allowedOrigins = ['http://localhost:3000', 'https://your-production-site.com'];
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(express.json());
-app.use(morgan('dev'));
 app.use(morgan('combined'));
 
 app.use('/api/auth', authRoutes);
@@ -32,12 +44,16 @@ app.use((req, res) => {
 });
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(process.env.PORT || 3000, () => {
-      console.log(`Server running on port ${process.env.PORT || 3000}`);
-    });
+    console.log(`Connected to ${isProduction ? 'Atlas' : 'Local'} MongoDB`);
+    app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+  console.log(`Server running on port ${process.env.PORT || 3000}`);
+});
+
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);

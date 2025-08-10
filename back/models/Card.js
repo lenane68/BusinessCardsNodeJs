@@ -2,23 +2,26 @@ import mongoose from 'mongoose';
 
 const cardSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  subtitle: String,
-  description: String,
+  subtitle: { type: String, required: true },
+  description: { type: String, required: true },
   phone: { type: String, required: true },
-  email: String,
-  web: String,
+  email: { type: String, required: true },
+  web: { type: String, required: true },
   image: {
-    url: String,
-    alt: String
+    url: { type: String, default: '' },
+    alt: { type: String, default: '' }
   },
   address: {
-    city: String,
-    street: String,
-    houseNumber: Number
+    state: { type: String, default: '' },
+    country: { type: String, required: true },
+    city: { type: String, required: true },
+    street: { type: String, required: true },
+    houseNumber: { type: Number, required: true },
+    zip: { type: String, default: '' }
   },
-  bizNumber: { type: Number, unique: true },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  bizNumber: { type: Number, required: true, unique: true },
+  likes: { type: [mongoose.Schema.Types.ObjectId], ref: 'User', default: [] },
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 }, { timestamps: true });
 
 export default mongoose.model('Card', cardSchema);
